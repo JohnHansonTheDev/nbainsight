@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBInsight | NBA Odds Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg bg-nba"></div>
+    <div class="bg bg-court"></div>
+    <div class="bg bg-noise"></div>
+
+    <header class="topbar glass">
+      <div>
+        <p class="eyebrow">NBInsight • Odds Nexus</p>
+        <h1>Modern NBA Odds & Injury Command Center</h1>
+        <p id="todayDate" class="subline"></p>
+      </div>
+      <div class="top-actions">
+        <button id="openAuth" class="btn-gmail">Create account / Login</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel glass">
+        <h2>Trending Players</h2>
+        <ul id="trendingList" class="stack"></ul>
+        <h3>Filter Board</h3>
+        <div class="filter-row">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="live">Live</button>
+          <button class="chip" data-filter="upcoming">Upcoming</button>
+          <button class="chip" data-filter="final">Final</button>
+        </div>
+      </aside>
+
+      <section id="gamesGrid" class="games-grid"></section>
+
+      <aside class="panel glass">
+        <h2>Injuries</h2>
+        <div id="injuryFeed" class="stack"></div>
+        <h3>Market Advice</h3>
+        <div id="marketFeed" class="stack"></div>
+      </aside>
+    </main>
+
+    <dialog id="authModal" class="auth-modal glass">
+      <form method="dialog" class="auth-card" id="authForm">
+        <h3>NBInsight Account</h3>
+        <p>Save favorites, alerts, and confidence thresholds.</p>
+        <label>Email <input type="email" id="authEmail" required placeholder="you@gmail.com" /></label>
+        <label>Password <input type="password" id="authPassword" required minlength="6" placeholder="••••••••" /></label>
+        <div class="auth-actions">
+          <button id="saveLocal" value="default">Create / Login</button>
+          <button type="button" id="gmailLogin">Continue with Gmail</button>
+          <button value="cancel" class="ghost">Close</button>
+        </div>
+        <p id="authMessage" class="subline"></p>
+      </form>
+    </dialog>
+
+    <template id="gameCardTemplate">
+      <article class="game-card glass">
+        <div class="card-head">
+          <span class="status"></span>
+          <span class="clock"></span>
+          <span class="run hidden">⚡ SCORING BURST</span>
+        </div>
+        <h3 class="matchup"></h3>
+        <div class="teams"></div>
+        <div class="odds-grid"></div>
+        <p class="confidence"></p>
+        <blockquote class="quote"></blockquote>
+      </article>
+    </template>
+
+    <script src="https://unpkg.com/@motionone/dom/dist/motion-one.umd.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
