@@ -1,0 +1,69 @@
+:root {
+  --bg: #05070d;
+  --bg2: #111934;
+  --txt: #f4f7ff;
+  --muted: #a4afc8;
+  --cyan: #2fe5ff;
+  --violet: #9f73ff;
+  --green: #5dffa2;
+  --red: #ff7f96;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--txt);
+  font-family: Inter, system-ui, sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(circle at 12% 15%, #28356f 0%, transparent 32%),
+    radial-gradient(circle at 90% 10%, #422562 0%, transparent 35%),
+    linear-gradient(145deg, var(--bg), var(--bg2) 45%, #0b1020);
+}
+.hero-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/03/National_Basketball_Association_logo.svg/338px-National_Basketball_Association_logo.svg.png") no-repeat;
+  background-size: min(35vw, 360px);
+  background-position: 94% 88%;
+  opacity: .12;
+}
+.noise { position: fixed; inset:0; pointer-events:none; background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px); background-size: 3px 3px; opacity: .05; }
+
+.glass { background: rgba(17, 20, 35, .73); border: 1px solid rgba(255,255,255,.15); backdrop-filter: blur(14px); box-shadow: 0 14px 40px rgba(0,0,0,.45); }
+.topbar { margin: 1rem; border-radius: 20px; padding: 1rem 1.2rem; display:flex; justify-content:space-between; gap:1rem; align-items:center; }
+.eyebrow { margin: 0; text-transform: uppercase; letter-spacing: .1em; color: var(--cyan); font-size:.72rem; font-weight: 800; }
+h1 { margin: .4rem 0 .2rem; font-size: clamp(1.2rem, 2.8vw, 2rem); }
+.subline { margin:0; color: var(--muted); }
+.btn-gmail { border:0; border-radius:999px; padding:.72rem 1rem; font-weight:800; cursor:pointer; background: linear-gradient(125deg, #fff, #92ecff); }
+
+.layout { padding: .3rem 1rem 1.2rem; display:grid; grid-template-columns: 290px 1fr 300px; gap: 1rem; }
+.panel { border-radius: 18px; padding: .9rem; height: fit-content; }
+.panel h2, .panel h3 { margin: .3rem 0 .7rem; }
+.stack { display:grid; gap:.55rem; padding: 0; margin:0; }
+.stack > li, .chip-item { list-style:none; background: rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.12); border-radius: 11px; padding: .6rem; font-size:.86rem; }
+.filter-row { display:flex; gap:.45rem; flex-wrap: wrap; }
+.chip { border:1px solid rgba(255,255,255,.2); background: transparent; color: var(--txt); border-radius: 999px; padding: .45rem .8rem; cursor:pointer; }
+.chip.active { border-color:#7bdcff; background: linear-gradient(120deg, #2fe5ff30, #9f73ff4f); }
+
+.games-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1rem; }
+.game-card { border-radius: 18px; padding: .9rem; overflow: hidden; }
+.card-head { display:flex; justify-content:space-between; color: var(--muted); font-size:.8rem; margin-bottom:.4rem; }
+.status { color: var(--cyan); font-weight: 800; text-transform:uppercase; }
+.run { color: var(--green); font-weight: 800; }
+.hidden { opacity: 0; }
+.matchup { margin:.45rem 0 .7rem; font-size:1.05rem; }
+.teams { display:grid; gap:.5rem; }
+.team-row { display:grid; grid-template-columns: 50px 1fr auto; gap:.65rem; align-items:center; padding:.55rem; background: rgba(255,255,255,.05); border-radius: 12px; }
+.team-row img { width:50px; height:50px; object-fit:contain; filter: drop-shadow(0 8px 12px rgba(0,0,0,.35)); }
+.team-meta small { color: var(--muted); display:block; }
+.stars { color: #ffd76b; }
+.score { font-size:1.35rem; font-weight: 900; }
+.odds-grid { margin-top:.8rem; display:grid; grid-template-columns: repeat(3, 1fr); gap:.5rem; }
+.odd { background: linear-gradient(130deg, #2fe5ff24, #9f73ff2c); border:1px solid rgba(124, 211, 255, .55); border-radius: 11px; padding:.5rem; }
+.odd b { display:block; font-size:.73rem; color: var(--muted); }
+.odd span { font-weight: 900; font-size: 1rem; }
+.confidence { margin:.65rem 0 .2rem; }
+.quote { margin:.55rem 0 0; border-left:3px solid var(--violet); padding-left:.65rem; color:#dee4ff; font-size:.86rem; }
+.warn { color: var(--red); font-weight:700; }
+
+@media (max-width: 1200px) { .layout { grid-template-columns: 1fr; } }
